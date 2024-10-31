@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    padding: 20px;
+    border: 2px solid #c39bd3; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+input {
+    margin-bottom: 15px; /* Espacio entre los campos */
+    padding: 10px;
+    border: 1px solid #c39bd3;
+    border-radius: 4px; /* Bordes redondeados en los campos */
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #a569bd; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+button:hover {
+    background-color: #a3e4d7; /* Color más oscuro al pasar el mouse */
+}
+
+span {
+    color: black; /* Color para mensajes de error */
+    font-size: 14px;
+}
