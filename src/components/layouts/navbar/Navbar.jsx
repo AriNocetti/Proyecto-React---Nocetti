@@ -12,7 +12,9 @@ const Navbar = () => {
 
     return (
         <div className={"container-nav"}>
-            <h2>Aritti </h2>
+            <Link to="/"> 
+            <h2>Aritti</h2>
+        </Link>
             <ul>
                 {categories.map(({title, path}) => (
                     <Link key={title} to={path}>
