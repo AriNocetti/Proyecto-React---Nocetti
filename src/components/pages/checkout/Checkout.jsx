@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import {CartContext} from "../../../context/CartContext";
 import "./checkout.css";
 import {db} from "../../../configFirebase";
 import {collection, addDoc, updateDoc, doc} from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const Checkout = () => {
     const [user, setUser] = useState({
@@ -67,6 +68,18 @@ const Checkout = () => {
         setUser({ ...user, [name]: value});
     };
 
+    useEffect(() => {
+        if (orderId) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Tu compra ha sido realizada con éxito!",
+                text: `Gracias por tu compra, el número de orden es: ${orderId}`,
+                confirmButtonText: "Aceptar",
+            });
+        }
+    }, [orderId]);
+
     if (isLoading) {
         return <h2>cargando...</h2>;
     }
@@ -74,7 +87,15 @@ const Checkout = () => {
     return (
         <div className="container">
             {orderId ? (
-                <h1>Gracias por tu compra, el número de orden es: {orderId}</h1>
+                <>
+                    <h1>Gracias por tu compra!</h1>
+                    <h1>El número de orden es: {orderId}</h1>
+                    <img 
+                        src="https://res.cloudinary.com/dejb7jzsz/image/upload/v1730426908/7587165_meyx3a.jpg" 
+                        alt="Compra realizada" 
+                        style={{ width: "300px", height: "300px", marginTop: "30px", borderRadius: "15px"}}
+                    />
+                </>
             ) : (
                 <form onSubmit={handleSubmit}>
                     <input 
